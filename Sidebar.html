@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <style>
+      body { font-family: 'Inter', sans-serif; padding: 15px; background-color: #f4f7f9; }
+      .btn {
+        width: 100%;
+        padding: 16px 10px;
+        margin-bottom: 12px;
+        border: 1px solid rgba(0,0,0,0.1);
+        border-radius: 10px;
+        font-weight: 800;
+        cursor: pointer;
+        text-align: center;
+        font-size: 13px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        transition: 0.2s;
+      }
+      .btn:active { transform: scale(0.98); }
+      
+      /* Colores basados en tus botones originales */
+      .coti { background-color: #fef3c7; color: #92400e; } /* Amarillo */
+      .cont { background-color: #fecaca; color: #991b1b; } /* Rojo */
+      .jur  { background-color: #ddd6fe; color: #5b21b6; } /* Morado */
+      .nat  { background-color: #d1fae5; color: #065f46; } /* Verde */
+      
+      .footer { font-size: 10px; color: #64748b; text-align: center; margin-top: 15px; }
+    </style>
+  </head>
+  <body>
+    <div class="btn coti" onclick="ejecutar('generarLinksWeb')">Generar Cotización</div>
+    <div class="btn cont" onclick="ejecutar('generarContratoDesdeCotizacion_BOTON')">Generar Contrato</div>
+    <div class="btn jur"  onclick="ejecutar('generarPagareJuridica_BOTON')">Generar Pagaré Jurídica</div>
+    <div class="btn nat"  onclick="ejecutar('generarPagareNatural_BOTON')">Generar Pagaré Natural</div>
+
+    <p class="footer">Selecciona una fila antes de usar los botones.</p>
+
+    <script>
+      function ejecutar(nombreFuncion) {
+        // Llama directamente a tus funciones del .gs
+        google.script.run
+          .withFailureHandler(err => alert("Error: " + err))
+          [nombreFuncion]();
+      }
+    </script>
+  </body>
+</html>
